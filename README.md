@@ -114,7 +114,7 @@ However, as the dollar and float values were in near unreadable formats, these v
 
 The result was the following dataframe:
 
-![district_summary_df](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/district_df_original.png?raw=true)
+![district_summary_df](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/district_df.png?raw=true)
 
 ### School Summary
 To be able to summarize results by school, lists of each value in the district_summary_df needed to be created and grouped by "school_name":
@@ -258,10 +258,63 @@ By utilizing the groupby() method to group schools by school type, this code als
 ## Results
 - How is the district summary affected?
   
+  Original:
+  ![district_summary_original](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/district_df_original.png?raw=true)
+  
+  Updated:
+  ![district_summary_new](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/district_df.png?raw=true)
+  
+  As seen in the pictures above, the updated percentages for math, reading, and both are all slightly lower than in the original. This would suggest that the 9th grade class at Thomas High School was skewing the data to the right.
+
 - How is the school summary affected?
+  
+  For almost all schools in the school summary, the changes to these calculations does not affect them. As their own scores and students have not been changed at all, they do not change in the school summary. However, for Thomas High School, this change does lower their average scores.
+
 - How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools?
+  
+  Original:
+  ![top_5_original](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/top_5_schools_original.png?raw=true)
+  
+  Updated:
+  ![top_5_updated](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/top_5_schools.png?raw=true)
+
+  When compared to other schools, it appears as if Thomas High School does not change in its rankings. However, its percentages of passing scores have lowered slightly to give Cabrera High School more of a lead. 
+  
 - How does replacing the ninth-grade scores affect the following:
-- Math and reading scores by grade
-- Scores by school spending
-- Scores by school size
-- Scores by school type
+  
+  - Math and reading scores by grade
+  
+  Math and Reading Scores by Grade remain almost completely intact when compared to the original. The only difference is that for Thomas High School on each of these dataframes, the 9th grade column is changed to the value NaN
+  
+  - Scores by school spending
+  
+  Original:
+  ![scores_by_school_spending_original](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/spending_summary_df_formatted_original.png?raw=true)
+
+  Updated:
+  ![scores_by_school_spending_updated](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/spending_summary_df_formatted.png?raw=true)
+  
+  Because of the size of the bins and the rounding to single decimals and whole numbers, it appears that the scores by school spending has not changed at all. However, in reality, the scores for the $631-645 bin have dropped such a miniscule amount that it did not affect the rounding of these numbers.
+  
+  - Scores by school size
+  
+  Original:
+  ![scores_by_size_original](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/size_summary_df_formatted_original.png?raw=true)
+  
+  Updated:
+  ![scores_by_size_updated](![image](https://user-images.githubusercontent.com/80123282/177893426-dc52aa58-4977-4617-bcb0-c309352ccb66.png)
+  
+  In a similar fashion to the Scores by School Spending, the Scores by School Size remain at their previous numbers purely due to rounding. In reality, the medium school bin has dropped such a miniscule amount that it cannot affect the rounded numbers.
+  
+  - Scores by school type
+  
+  Original:
+  ![scores_by_type_original](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/type_summary_df_formatted_original.png?raw=true)
+  
+  Updated:
+  ![scores_by_type_updated](https://github.com/waciciarelli/School_District_Analysis/blob/main/Resources/type_summary_df_formatted.png?raw=true)
+  
+  And finally, for the same reason as the 2 previous analyses, the Scores by School Type does not appear to change despite the numbers for charter schools being slightly lower than before.
+  
+## Summary
+There are notable changes to the analyses that can be noticed by the removal of the Thomas High School 9th Grade results. Most notably is that scores and pasing percentages in all analyses that had previously included these results have dropped. In the district analysis, scores and percentages accross the board have been lowered by around 0.1%. In the top 5 schools, the gap between Thomas High School and Cabrera High School has only grown. In the school spending, school size, and school type analyses, the scores and percentages have dropped by a negligable amount. This would sugges that theses results were skewing the averages upward. Another change that may not be so easily observed is that there is a lower population size for this analysis. This means that the other scores all have more sway in the results of this analysis.
